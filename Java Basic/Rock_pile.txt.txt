@@ -1,0 +1,34 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args)
+    {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+       s.nextLine();
+    
+        while (n-- > 0) {
+            int m = s.nextInt();
+            s.nextLine();
+            String str = s.nextLine();
+            print(m,str);
+        }
+      
+    }
+    static void print(int m, String str){
+        // System.out.println(str.charAt(0)=='0');
+
+        int count =0;
+        for(int i=0;i<str.length();i++){
+            if(str.charAt(i)=='-' && count!=0){
+                count--;
+            }else if(str.charAt(i)=='+'){
+                count++;
+            }
+        }
+        
+        System.out.println(count);
+    }
+}
+ 
