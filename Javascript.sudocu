@@ -1,0 +1,76 @@
+let flag = false;
+function runProgram(input) {
+    // write your code here
+    input = input.trim().split("\n");
+    let n =9;
+    let arr = [];
+    let line =0;
+    for( let i =0;i<n;i++){
+        arr.push(input[line++].trim().split(" ").map(Number))
+    }
+   
+    soduko(arr,0,0);
+    if(flag==false){
+        console.log(-1);
+    }
+    
+ }
+function soduko(arr,row,col){
+    if(row==arr.length){
+    for(let i =0;i<arr.length;i++){
+        console.log(arr[i].join(" "));
+    }
+        flag = true;
+        return;
+    }
+    let nextRow=0;
+    let nextCol =0;
+    if(col==arr.length-1){
+        nextRow=row+1;
+        nextCol =0;
+    }
+    else{
+       nextRow=row;
+        nextCol =col+1; 
+    }
+    if(arr[row][col]!=0){
+        soduko(arr,nextRow,nextCol);
+    }else{
+        for(let i =1;i<=9;i++){
+            if(checkSafe(arr,row,col,i)==true){
+                arr[row][col]=i;
+                soduko(arr,nextRow,nextCol);
+                arr[row][col]=0;
+            }
+        }
+    }
+
+} 
+ function checkSafe(arr,row,col,val){
+     
+     
+     for( let i =0;i<arr.length;i++){
+         if(arr[row][i]==val) return false;
+     }
+     
+     for( let i =0;i<arr.length;i++){
+         if(arr[i][col]==val) return false;
+     }
+     
+     let x =row-row%3;
+     let z =col-col%3;
+     for( let i =x;i<x+3;i++){
+         for( let j=z;j<z+3;j++){
+             if(arr[i][j]==val) return false;
+         }
+     }
+     return true;
+     
+     
+     
+ }
+function printarr(arr){
+    for(let i =0;i<arr.length;i++){
+        console.log(arr[i].join(" "));
+    }
+} 
