@@ -1,0 +1,118 @@
+import java.util.*;
+import java.io.*;
+public class Main{
+	    static class FastReader{
+	        BufferedReader br;
+	        StringTokenizer st;
+	        public FastReader(){
+	            br=new BufferedReader(new InputStreamReader(System.in));
+	        }
+	        String next(){
+	            while(st==null || !st.hasMoreTokens()){
+	                try {
+	                    st=new StringTokenizer(br.readLine());
+	                } catch (IOException e) {
+	                    e.printStackTrace();
+	                }
+	            }
+	            return st.nextToken();
+	        }
+	        int nextInt(){
+	            return Integer.parseInt(next());
+	        }
+	        long nextLong(){
+	            return Long.parseLong(next());
+	        }
+	        double nextDouble(){
+	            return Double.parseDouble(next());
+	        }
+	        String nextLine(){
+	            String str="";
+	            try {
+	                str=br.readLine().trim();
+	            } catch (Exception e) {
+	                e.printStackTrace();
+	            }
+	            return str;
+	        }
+	    }
+	    static class FastWriter {
+			private final BufferedWriter bw;
+			public FastWriter() {
+				this.bw = new BufferedWriter(new OutputStreamWriter(System.out));
+			}
+			public void print(Object object) throws IOException {
+				bw.append("" + object);
+			}
+			public void println(Object object) throws IOException {
+				print(object);
+				bw.append("\n");
+			}
+			public void close() throws IOException {
+				bw.close();
+			}
+		}
+	    public static void main(String[] args) {
+	        try {
+	            FastReader sc=new FastReader();
+	            FastWriter out = new FastWriter();
+	            int tc = sc.nextInt();
+        while(tc-- > 0){
+        int n = sc.nextInt();
+        
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+                arr[i]= sc.nextInt();
+        }
+     
+        mergeSort(arr,0,arr.length-1);
+        StringBuilder str = new StringBuilder("");
+        for(int i=0;i<n;i++){
+          str = str.append(arr[i]+" ");
+        }
+      System.out.println(str);
+    }
+	            out.close();
+	        } catch (Exception e) {
+	            return;
+	        }
+	    }
+	      public static void mergeSort(int[] arr,int L,int H){
+          if(L<H){
+      int mid = L+(H-L)/2;
+      mergeSort(arr,L,mid);
+      mergeSort(arr,mid+1,H);
+      merge(arr,L,mid,H);
+  }else{
+      return;
+  }
+    }
+  public  static void merge(int[] arr,int L,int mid ,int H){
+       int[] left = Arrays.copyOfRange(arr,L,mid+1);
+    int[] right = Arrays.copyOfRange(arr,mid+1,H+1);
+    int index = L;
+    int l = 0;
+    int r = 0;
+    while(l<left.length && r<right.length){
+        if(left[l]<=right[r]){
+            arr[index] = left[l];
+            l++;
+        }else{
+            arr[index] = right[r];
+            r++;
+        }
+        index++;
+    }
+    while(l<left.length){
+        arr[index] = left[l];
+        l++;
+        index++;
+    }
+    while(r<right.length){
+        arr[index] = right[r];
+        r++;
+        index++;
+    }
+    }
+
+	}
