@@ -1,0 +1,20 @@
+function check(k,arr){
+    if(k == arr.length){
+        let temp = [];
+        for(let i=0;i<arr.length;i++){
+            temp.push(arr[i]);
+        }
+        main.push(temp);
+        return ;
+    }
+    for(let i=k;i<arr.length;i++){
+        swap(arr,i,k);
+        check(k+1,arr);
+        swap(arr,i,k);
+    }
+}
+function swap(arr,i,k){
+    let temp = arr[i];
+    arr[i]=arr[k];
+    arr[k]=temp;
+}
