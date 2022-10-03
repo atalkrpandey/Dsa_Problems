@@ -1,0 +1,50 @@
+let flag = false;
+let main = [];
+function runProgram(input) {
+    input=input.trim().split("\n");
+    let [n] = input[0].trim().split(" ").map(Number);
+    let mat =[];
+    let line =1;
+    for(let i=0;i<n;i++){
+        let arr = input[line++].trim().split(" ").map(Number); 
+        mat.push(arr);
+    }
+    let arr = [];
+    
+  ratMaze(mat,0,0,arr);
+  if(flag == false){
+      console.log(-1);
+  }
+  if(main.length!==0){
+     let newarr = [];
+    console.log(main.join(" "));
+  }
+}
+
+function ratMaze(board,row,col,arr){
+    if (row < 0 || row >= board.length || col < 0 || col >= board.length || board[row][col] == 0){
+        return;
+    }
+    if (row == board.length - 1  && col == board.length - 1){
+        let temp = "";
+        for(let i=0;i<arr.length;i++){
+           temp += arr[i];
+        }
+        main.push(temp);
+        flag = true;
+    }
+    board[row][col] = 0;
+    arr.push("D");
+    ratMaze(board,row+1,col,arr);
+    arr.pop();
+    arr.push("L");
+    ratMaze(board,row,col-1,arr);
+    arr.pop();
+    arr.push("R");
+    ratMaze(board,row,col+1,arr);
+    arr.pop();
+    arr.push("U");
+    ratMaze(board,row-1,col,arr);
+    arr.pop();
+    board[row][col] = 1;
+}
