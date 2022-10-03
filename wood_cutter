@@ -1,0 +1,41 @@
+let val = -1;
+function runProgram(input) {
+    input=input.trim().split("\n");
+   
+    let [n,k] = input[0].trim().split(" ").map(Number);
+    let arr = input[1].trim().split(" ").map(Number);
+    let max = -Infinity;
+    
+    for(let i=0;i<n;i++){
+        if(arr[i]>max){
+            max=arr[i];
+        }
+    }
+    
+    check(arr,0,max,k);
+    console.log(val);
+}
+
+
+function check(arr,L,H,k){
+  if(L<=H){
+       let mid = Math.floor(L+(H-L)/2);
+      let sum=0;
+      for(let i=0;i<arr.length;i++){
+          if(arr[i]>mid){
+            sum += arr[i]-mid;  
+          }
+          
+      }
+      if(k==sum){
+          val=mid;
+          return;
+      }
+      if(k<sum){
+          val=mid;
+          check(arr,mid+1,H,k);
+      }else{
+         check(arr,L,mid-1,k); 
+      }
+  }
+}
