@@ -1,0 +1,36 @@
+public static void main(String[] args) {
+	        try {
+	            FastReader in=new FastReader();
+	            FastWriter out = new FastWriter();
+	           String str = in.nextLine();
+	            int max = str.length();
+	            int charmax = 0;
+    for(int i=0;i<str.length();i++){
+        StringBuilder str1 = new StringBuilder("");
+        
+        for(int j=i;j<str.length();j++){
+            str1.append(str.charAt(j));
+            if(check(str1)>charmax){
+                max = str1.length();
+                charmax = check(str1);
+            }
+              if(check(str1)==charmax && str1.length()<max){
+                max = str1.length();
+                charmax = check(str1);
+            }
+        }
+    }
+    System.out.println(max);
+	            out.close();
+	        } catch (Exception e) {
+	            return;
+	        }
+	    }
+	    
+	    public static int check(StringBuilder str){
+     Set<Character> set = new HashSet<Character>();
+    for(int i=str.length()-1;i>=0;i--){
+        set.add(str.charAt(i));
+    }
+    return set.size();
+}
