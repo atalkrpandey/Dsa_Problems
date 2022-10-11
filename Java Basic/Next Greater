@@ -3,7 +3,7 @@
 	            FastReader in=new FastReader();
 	            FastWriter out = new FastWriter();
 	            int testCases=in.nextInt();
-	            while(testCases-- > 0){
+	            while(testCases --> 0){
 	             int n = in.nextInt();
 	             int[] arr = new int[n];
 	             for(int i=0;i<n;i++){
