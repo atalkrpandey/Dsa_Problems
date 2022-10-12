@@ -8,20 +8,19 @@ if(s.charAt(0)==')'||s.charAt(0)=='}'||s.charAt(0)==']'){
         }
         if(s.charAt(i)=='('||s.charAt(i)=='{'||s.charAt(i)=='['){            if(s.charAt(i)=='('){
                 st.push(')');
-//             }
-//              if(s.charAt(i)=='['){
-//                 st.push(']');
-//             }
-//              if(s.charAt(i)=='{'){
-//                 st.push('}');
-//             }
-//         }else if(s.charAt(i)==')'||s.charAt(i)=='}'||s.charAt(i)==']'){
-//           if(s.charAt(i)==st.peek()){
-//               st.pop();
-//           }else{
-//              flag=false;
-//              break;
-//           }  
+            }
+             if(s.charAt(i)=='['){
+                st.push(']');
+            }
+             if(s.charAt(i)=='{'){
+                st.push('}');
+}
+         }else if(s.charAt(i)==')'||s.charAt(i)=='}'||s.charAt(i)==']'){
+           if(s.charAt(i)==st.peek()){
+             st.pop();
+          }else{             flag=false;             break;
+// 
+}  
 //         }else{
 //             continue;
 //         }
