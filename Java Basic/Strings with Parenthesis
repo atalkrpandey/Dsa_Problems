@@ -19,15 +19,15 @@ if(s.charAt(0)==')'||s.charAt(0)=='}'||s.charAt(0)==']'){
            if(s.charAt(i)==st.peek()){
              st.pop();
           }else{             flag=false;             break;
-// 
-}  
-//         }else{
-//             continue;
-//         }
-//     }
-//     if(st.size()==0 && flag){
-//       System.out.println("balanced"); 
-//     }else{
-//         System.out.println("unbalanced");
+
+}
+        }else{
+            continue;
+         }
+}
+    if(st.size()==0 && flag){
+      System.out.println("balanced"); 
+     }else{
+       System.out.println("unbalanced");
         
-//     }
+     }
