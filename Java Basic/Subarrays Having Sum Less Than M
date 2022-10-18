@@ -1,6 +1,6 @@
  public static void main(String[] args) {
 	        try {
-	            FastReader in=new FastReader();
+	            FastReader in = new FastReader();
 	            FastWriter out = new FastWriter();
 	            int testCases=in.nextInt();
 	            while(testCases-- > 0){
