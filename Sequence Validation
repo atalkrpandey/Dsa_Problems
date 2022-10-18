@@ -1,0 +1,20 @@
+function check(n,arr1,arr2){
+  
+
+  let l =0;
+  let r =0;
+  let arr = [];
+  while(l<n){
+    arr.push(arr1[l++]);
+    while(arr.length!=0 && r<n && arr[arr.length-1]==arr2[r]){
+        arr.pop();
+        r++;
+    }
+  }
+  
+  if(r == n){
+      console.log(1);
+  }else{
+      console.log(0);
+  }
+}
