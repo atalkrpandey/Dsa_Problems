@@ -1,0 +1,46 @@
+   public static void main(String[] args) {
+	        try {
+	            FastReader in=new FastReader();
+	            FastWriter out = new FastWriter();
+	            int n = in.nextInt();
+	            int[] arr = new int[n];
+	            for(int i=0;i<arr.length;i++){
+	                arr[i] = in.nextInt();
+	            }
+	           
+	            
+	            check(n,arr,0);
+	            Collections.sort(res);
+	            for(String s: res){
+                System.out.println(s);
+	            }
+	           
+	            out.close();
+	        } catch (Exception e) {
+	            return;
+	        }
+	    }
+	    static void check(int n,int[] arr,int index){
+	        if(index==n){
+	           String str = "";
+	        for(int i=0;i<n;i++){
+	            str += arr[i]+" ";
+	        }
+	         res.add(str);
+	        return;
+	        } 
+	       
+	        for(int i=index;i<n;i++){
+	               
+	              swap(arr,i,index);
+	            check(n,arr,index+1);
+	            swap(arr,i,index);   
+	           
+	           
+	        }
+	    }
+	    static void swap(int[] arr,int i,int index){
+	        int temp = arr[i];
+	        arr[i] = arr[index];
+	        arr[index] = temp;
+	    }
