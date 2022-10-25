@@ -27,7 +27,7 @@ public static void main(String[] args) {
 	        }
 	        res.add(sum);
 	        }
-	         if(index==n){
+	         if(index ==n ){
 	       
 	        return;
 	        }
@@ -36,8 +36,7 @@ public static void main(String[] args) {
                  list.add(arr[i]);
 	            check(n,arr,i+1,list);
 	           list.remove(list.size()-1);   
-	           
-	           
+	          
 	        }
 	    }
 	  
