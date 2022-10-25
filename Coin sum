@@ -12,7 +12,7 @@ public static void main(String[] args) {
 	             check(n,arr,0,list);
 	             System.out.println(res.size());
 	            for(Integer s: res){
-	                System.out.print(s+" ");
+	                System.out.print(s  +"");
 	            }
 	            out.close();
 	        } catch (Exception e) {
