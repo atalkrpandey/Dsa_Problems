@@ -1,0 +1,48 @@
+import java.util.*;
+
+class Main {
+    
+    public static void main (String[] args){
+        Scanner sc = new Scanner(System.in);
+      
+        int n = sc.nextInt();
+        
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+                arr[i]= sc.nextInt();
+        }
+     
+        quickSort(arr,0,arr.length-1);
+        StringBuilder str = new StringBuilder("");
+        for(int i=0;i<n;i++){
+           str = str.append(arr[i]+" ");
+        }
+      System.out.println(str);
+    
+    }
+   public static void quickSort(int[] arr,int L,int H){
+        if(L<H){
+            int pi = partition(arr,L,H);
+           quickSort(arr,L,pi-1);
+           quickSort(arr,pi+1,H);
+        }
+        return ;
+    }
+   public  static int partition(int[] arr,int L ,int H){
+        int pivot = arr[H];
+        int i = L;
+        for(int j=L;j<H;j++){
+            if(arr[j]<pivot){
+                swap(arr,i,j);
+                i++;
+            }
+        }
+        swap(arr,i,H);
+        return i;
+    }
+  public   static void swap(int[] arr,int L, int R){
+        int temp = arr[L];
+        arr[L] = arr[R];
+        arr[R] = temp;
+    }
+}
