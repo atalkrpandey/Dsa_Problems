@@ -1,6 +1,6 @@
 public static void main(String[] args) {
 	        try {
-	            FastReader in=new FastReader();
+	            FastReader in = new FastReader();
 	            FastWriter out = new FastWriter();
 	            int n = in.nextInt();
 	            int[] arr = new int[n];
@@ -27,7 +27,7 @@ public static void main(String[] args) {
 	        }
 	        res.add(sum);
 	        }
-	         if(index ==n ){
+	         if(index == n ){
 	       
 	        return;
 	        }
