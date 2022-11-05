@@ -1,0 +1,34 @@
+  public static void main(String[] args) {
+	        try {
+	            FastReader in=new FastReader();
+	            FastWriter out = new FastWriter();
+	            int tc = in.nextInt();
+                    while(tc --> 0){
+                int n = in.nextInt();
+                check(n);
+
+                        }
+
+	            out.close();
+	        } catch (Exception e) {
+	            return;
+	        }
+	    }
+     static void check(int n){
+         if(n==1){
+             System.out.println("Yes");
+             return; 
+         }
+         if(list.contains(n)==true){
+             System.out.println("No");
+             return;
+         }else{
+             list.add(n);
+         }
+         String s = Integer.toString(n);
+         int sum =0;
+         for(int i=0;i<s.length();i++){
+             sum += Integer.parseInt(s.charAt(i)+"")*Integer.parseInt(s.charAt(i)+"");
+         }
+         check(sum);
+     }
