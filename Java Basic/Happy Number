@@ -6,10 +6,8 @@
                     while(tc --> 0){
                 int n = in.nextInt();
                 check(n);
-
-                        }
-
-	            out.close();
+                   }
+		   out.close();
 	        } catch (Exception e) {
 	            return;
 	        }
