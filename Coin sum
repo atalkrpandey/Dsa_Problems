@@ -8,7 +8,7 @@ public static void main(String[] args) {
 	                arr[i] = in.nextInt();
 	            }
 	            Arrays.sort(arr);
-	             List<Integer> list = new ArrayList<>();
+	             List<Integer>  list = new ArrayList<>();
 	             check(n,arr,0,list);
 	             System.out.println(res.size());
 	            for(Integer s: res){
