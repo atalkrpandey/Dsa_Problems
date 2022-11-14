@@ -12,7 +12,7 @@
 	            check(n,arr,0);
 	            Collections.sort(res);
 	            for(String s: res){
-                System.out.println(s);
+                    System.out.println(s);
 	            }
 	           
 	            out.close();
