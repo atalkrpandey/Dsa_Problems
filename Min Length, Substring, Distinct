@@ -10,7 +10,7 @@ public static void main(String[] args) {
         
         for(int j=i;j<str.length();j++){
             str1.append(str.charAt(j));
-            if(check(str1)>charmax){
+            if(check(str1) > charmax){
                 max = str1.length();
                 charmax = check(str1);
             }
