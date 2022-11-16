@@ -1,0 +1,32 @@
+let n = 8;
+let z = (n-1)/2;
+let x = 1;
+flag = false;
+for(let i=0;i<n;i++){
+  let bag ="";
+   for(let j=0;j<z;j++){
+    bag += " ";
+  }
+   for(let j=0;j<x;j++){
+    bag += "*";
+  }
+  for(let j=0;j<z;j++){
+    bag += " ";
+  }
+  console.log(bag)
+  if(flag==false){
+  z--;
+  x += 2;
+   
+  }
+   if(flag==true || z<0){
+      if(z<0){
+      z++;
+      x -= 2;
+    }
+     z++;
+     x -= 2;
+     flag = true;
+  }
+}
+ 
