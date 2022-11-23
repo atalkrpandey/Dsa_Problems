@@ -7,12 +7,14 @@ function check(k,arr){
         main.push(temp);
         return ;
     }
+    
     for(let i=k;i<arr.length;i++){
         swap(arr,i,k);
         check(k+1,arr);
         swap(arr,i,k);
     }
-}
+} 
+
 function swap(arr,i,k){
     let temp = arr[i];
     arr[i]=arr[k];
