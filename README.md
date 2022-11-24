@@ -1,2 +1,2 @@
 # Dsa_Problems
-for only dsa java problems
+Importent DSA problems in java and javascript. 
