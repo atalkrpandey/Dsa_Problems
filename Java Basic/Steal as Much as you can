@@ -1,0 +1,85 @@
+
+function runProgram(input) {
+    input=input.trim().split("\n");
+    let w = +input[0];
+    let n = +input[1]; 
+    let arr1 = input[2].trim().split(" ").map(Number);
+    let arr2 = input[3].trim().split(" ").map(Number);
+    check(w,n,arr1,arr2)
+
+}
+
+function check(C,n,V,W){
+ 
+    mergeSort(V,W,0,n-1);
+
+ let MAX_VAL = 0;
+for(let i=0;i<n;i++){
+
+  if( W[i] <= C ){
+
+    MAX_VAL = MAX_VAL + V[i];
+    C = C - W[i];
+
+  }
+
+  else{
+     
+    MAX_VAL = MAX_VAL + Math.round(V[i]*(C/W[i]));
+    
+    break;
+  }
+}
+
+ console.log(MAX_VAL);
+
+}
+function mergeSort(arr1,arr2,L,H){
+  if(L<H){
+      let mid = Math.floor((L+H)/2);
+      mergeSort(arr1,arr2,L,mid);
+      mergeSort(arr1,arr2,mid+1,H);
+      merge(arr1,arr2,L,mid,H);
+  }else{
+      return;
+  }
+}
+function merge(arr1,arr2,L,mid,H){
+    let left1 = arr1.slice(L,mid+1);
+    let right1 = arr1.slice(mid+1,H+1);
+    let left2 = arr2.slice(L,mid+1);
+    let right2 = arr2.slice(mid+1,H+1);
+    let index = L;
+    let l = 0;
+    let r = 0;
+    while(l<left1.length && r<right1.length){
+        if(left1[l]/left2[l]>=right1[r]/right2[r]){
+            arr1[index] = left1[l];
+             arr2[index] = left2[l];
+            l++;
+        }else{
+            arr1[index] = right1[r];
+            arr2[index] = right2[r];
+            r++;
+        }
+        index++;
+    }
+    while(l<left1.length){
+       arr1[index] = left1[l];
+       arr2[index] = left2[l];
+        l++;
+        index++;
+    }
+    while(r<right1.length){
+        arr1[index] = right1[r];
+        arr2[index] = right2[r];
+        r++;
+        index++;
+    }
+}
+
+function swap(V,x,y){
+    let temp = V[x];
+    V[x] = V[y];
+    V[y] = temp;
+}
