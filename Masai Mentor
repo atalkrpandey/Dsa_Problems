@@ -1,0 +1,70 @@
+let min = -1;
+let max = -1;
+
+function runProgram(input) {
+    input=input.trim().split("\n");
+    let tc = +input[0];
+    let line =1;
+    for(let i=0;i<tc;i++){
+    let n = +input[line++]; 
+    let arr = input[line++].trim().split(" ").map(Number);
+    let arr1 = [];
+                   for(let i=0;i<n;i++){
+                       arr1[i] = arr[i];
+                   }
+                   let obj =  {};
+                   for(let i=0;i<n;i++){
+                       if(obj[arr1[i]]==undefined){
+                          obj[arr1[i]] = 1;
+                       }else{
+                          obj[arr1[i]]++;
+                       }
+                   }
+                   
+                 arr.sort((a,b) => (a-b));
+                 let list = [];
+                 for(let i=0;i<n;i++){
+                       min = -1;
+                       max = -1;
+                       binary(arr,arr1[i],0,n-1);
+                       if(max != -1){
+                           list.push(max);
+                       }else{
+                           if(obj[arr1[i]]>1){
+                               list.push(arr1[i]);
+                           }else{
+                             list.push(min);    
+                           }
+                         
+                       }
+                  } 
+                 
+              console.log(list.join(" "));   
+                 
+                 
+ }
+}
+
+function binary(arr, val, L, H){
+        if(L<=H){
+            let mid = Math.floor(L +(H-L)/2);
+            if(arr[mid]>val && arr[mid]<=2*val){
+                
+                    max = arr[mid];
+                    
+             
+               
+                binary(arr,val,mid+1,H);
+            }else if(arr[mid]<=val){
+                   if(arr[mid]!=val){
+                    min = arr[mid];   
+                   }
+                     
+                
+                binary(arr,val,mid+1,H);
+            }else{
+                binary(arr,val,L,mid-1);
+            }
+        } 
+     }
+
