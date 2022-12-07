@@ -39,9 +39,7 @@ function runProgram(input) {
                        }
                   } 
                  
-              console.log(list.join(" "));   
-                 
-                 
+              console.log(list.join(" ")); 
  }
 }
 
