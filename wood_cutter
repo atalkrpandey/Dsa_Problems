@@ -15,8 +15,6 @@ function runProgram(input) {
     check(arr,0,max,k);
     console.log(val);
 }
-
-
 function check(arr,L,H,k){
   if(L<=H){
        let mid = Math.floor(L+(H-L)/2);
