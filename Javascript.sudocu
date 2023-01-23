@@ -65,9 +65,7 @@ function soduko(arr,row,col){
          }
      }
      return true;
-     
-     
-     
+  
  }
 function printarr(arr){
     for(let i =0;i<arr.length;i++){
