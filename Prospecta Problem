@@ -1,0 +1,64 @@
+	
+		File file = new File("abc.txt");
+		
+		FileReader fileReader = null;
+		try {
+			fileReader = new FileReader(file);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		BufferedReader reader = new BufferedReader(fileReader);
+		
+		  try {
+			String line = reader.readLine();
+			
+			
+			String[] words = line.trim().split(",");
+			Map<String,String> map = new LinkedHashMap<>();
+			for(String s : words) {
+				String[] divide = s.split(":");
+				if(s.contains("=")) {
+				
+					map.put(divide[0].trim(), divide[1].trim().split("=")[1]);	
+				}else {
+					
+					map.put(divide[0].trim(), divide[1].trim());
+				}
+				
+				
+			}
+			
+			Map<String, Integer> map2 = new LinkedHashMap<>();
+			for(Map.Entry<String, String> e : map.entrySet()) {
+				
+				if(e.getValue().contains("+")) {
+					
+					String[] arr = e.getValue().trim().split("\\+");
+					int sum = 0;
+					for(String s : arr) {
+					
+						if(map.containsKey(s.trim())) {
+							sum += Integer.parseInt(map.get(s.trim()));
+						}else {
+							 sum += Integer.parseInt(s.trim());
+						}
+					}
+					
+					map.put(e.getKey(), sum+"");
+					map2.put(e.getKey(), sum);
+					
+				
+				}else {
+				 map2.put(e.getKey(), Integer.parseInt(e.getValue().trim()));
+				}
+				
+			}
+			
+			System.out.println(map.toString());
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
